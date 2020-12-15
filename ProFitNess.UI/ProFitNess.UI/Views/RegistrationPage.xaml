@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProFitNess.UI.Views.RegistrationPage">
+    <ContentPage.Content>
+        <FlexLayout Direction="Column" Wrap="Wrap" JustifyContent="SpaceAround">
+            <Label Text="Регистрация"/>
+            <Label Text="Имя"/>
+            <Entry />
+            <Label Text="Пол"/>
+            <Entry />
+            <Label Text="Возраст"/>
+            <Entry />
+            <Label Text="Электронная почта"/>
+            <Entry />
+            <Label Text="Пароль"/>
+            <Entry />
+            <Button Text="Далее"/>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>
