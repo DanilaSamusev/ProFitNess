@@ -3,8 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProFitNess.UI.Views.HomePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"/>
-        </StackLayout>
+        <FlexLayout Direction="Column" Wrap="Wrap" JustifyContent="Center">
+            <StackLayout>
+                <Button Text="Похудение"/>
+                <Label Text="Данный раздел продоставит вам подходящий список упражнений и диет для похудения"/>
+            </StackLayout>
+            <StackLayout>
+                <Button Text="Здоровье"/>
+                <Label Text="Данный раздел продоставит вам подходящий список упражнений и диет для улучшения вашего здоровья"/>
+            </StackLayout>
+        </FlexLayout>
     </ContentPage.Content>
 </ContentPage>
