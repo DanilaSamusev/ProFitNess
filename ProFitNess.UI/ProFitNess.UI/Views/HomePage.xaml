@@ -1,16 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localization="clr-namespace:ProFitNess.UI.Localization;assembly=ProFitNess.UI"
              x:Class="ProFitNess.UI.Views.HomePage">
     <ContentPage.Content>
         <FlexLayout Direction="Column" Wrap="Wrap" JustifyContent="Center">
             <StackLayout>
-                <Button Text="Похудение"/>
-                <Label Text="Данный раздел продоставит вам подходящий список упражнений и диет для похудения"/>
+                <Button Text="{localization:Translate WeightLoss}"/>
+                <Label Text="{localization:Translate WeightLossOptionDescription}"/>
             </StackLayout>
             <StackLayout>
-                <Button Text="Здоровье"/>
-                <Label Text="Данный раздел продоставит вам подходящий список упражнений и диет для улучшения вашего здоровья"/>
+                <Button Text="{localization:Translate Health}"/>
+                <Label Text="{localization:Translate HealthOptionDescription}"/>
             </StackLayout>
         </FlexLayout>
     </ContentPage.Content>

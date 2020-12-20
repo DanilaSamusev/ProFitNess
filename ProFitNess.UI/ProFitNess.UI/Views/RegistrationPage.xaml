@@ -1,21 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localization="clr-namespace:ProFitNess.UI.Localization;assembly=ProFitNess.UI"
              x:Class="ProFitNess.UI.Views.RegistrationPage">
     <ContentPage.Content>
         <FlexLayout Direction="Column" Wrap="Wrap" JustifyContent="SpaceAround">
-            <Label Text="Регистрация"/>
-            <Label Text="Имя"/>
+            <Label Text="{localization:Translate Registration}"/>
+            <Label Text="{localization:Translate Name}"/>
             <Entry />
-            <Label Text="Пол"/>
+            <Label Text="{localization:Translate Sex}"/>
             <Entry />
-            <Label Text="Возраст"/>
+            <Label Text="{localization:Translate Age}"/>
             <Entry />
-            <Label Text="Электронная почта"/>
+            <Label Text="{localization:Translate Mail}"/>
             <Entry />
-            <Label Text="Пароль"/>
+            <Label Text="{localization:Translate Password}"/>
             <Entry />
-            <Button Text="Далее"/>
+            <Button Text="{localization:Translate Next}"/>
         </FlexLayout>
     </ContentPage.Content>
 </ContentPage>
