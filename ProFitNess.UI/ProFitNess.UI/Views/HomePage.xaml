@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <FlexLayout Direction="Column" Wrap="Wrap" JustifyContent="Center">
             <StackLayout>
-                <Button Text="{localization:Translate WeightLoss}"/>
+                <Button Text="{localization:Translate WeightLoss}" Clicked="WeightLossButton_Clicked"/>
                 <Label Text="{localization:Translate WeightLossOptionDescription}"/>
             </StackLayout>
             <StackLayout>
