@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProFitNess.UI.Views.ExerciseTypesPage">
+             x:Class="ProFitNess.UI.Views.ExercisesListPage">
     <ContentPage.Content>
         <FlexLayout Direction="Column" Wrap="Wrap" JustifyContent="Center">
-            <ListView x:Name="ExerciseTypes" ItemTapped="ExerciseTypes_ItemTapped"/>
+            <ListView x:Name="ExerciseDescriptions" ItemTapped="ExerciseDescriptions_ItemTapped"/>
         </FlexLayout>
     </ContentPage.Content>
 </ContentPage>

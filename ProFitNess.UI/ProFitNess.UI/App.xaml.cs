@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
-
+using System.Reflection;
 using ProFitNess.BLL.Services;
+using ProFitNess.DAL;
+using ProFitNess.DAL.Entities;
 using ProFitNess.UI.Views;
 
 using Xamarin.Forms;
@@ -10,27 +12,49 @@ namespace ProFitNess.UI
 {
     public partial class App : Application
     {
-        private const string ExerciseTypesTableName = "ExerciseTypes.db";
+        private const string DatabaseName = "ProFitNess.db";
 
-        public static ExerciseTypeService _exerciseTypesTable;
+        private static ExerciseTypeService _exerciseTypeService;
+        private static ExerciseDescriptionService _exerciseDescriptionService;
+        private static ExerciseService _exerciseService;
 
-        public static ExerciseTypeService ExerciseTypesTable =>
-            _exerciseTypesTable ?? (
-                _exerciseTypesTable = new ExerciseTypeService(
+        public static ExerciseTypeService ExerciseTypeService =>
+            _exerciseTypeService ?? (
+                _exerciseTypeService = new ExerciseTypeService(
+                    Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), 
+                        DatabaseName)));
+
+        public static ExerciseDescriptionService ExerciseDescriptionService =>
+            _exerciseDescriptionService ?? (
+                _exerciseDescriptionService = new ExerciseDescriptionService(
                     Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                ExerciseTypesTableName)));
+                        DatabaseName)));
+
+        public static ExerciseService ExerciseService =>
+            _exerciseService ?? (
+                _exerciseService = new ExerciseService(
+                    Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                        DatabaseName)));
 
         public App()
         {
             InitializeComponent();
+            
+            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), DatabaseName);
 
-            /*var legExerciseType = new ExerciseType() { Name = "Legs" };
-            var armExerciseType = new ExerciseType() { Name = "Arms" };
-            var headExerciseType = new ExerciseType() { Name = "Head" };
-
-            ExerciseTypesTable.Save(legExerciseType);
-            ExerciseTypesTable.Save(armExerciseType);
-            ExerciseTypesTable.Save(headExerciseType);*/
+            if (!File.Exists(DatabaseName))
+            {
+                var assembly = IntrospectionExtensions.GetTypeInfo(typeof(App)).Assembly;
+                
+                using (Stream stream = assembly.GetManifestResourceStream($"ProFitNess.UI.{DatabaseName}"))
+                {
+                    using (FileStream fs = new FileStream(dbPath, FileMode.OpenOrCreate))
+                    {
+                        stream.CopyTo(fs); 
+                        fs.Flush();
+                    }
+                }
+            }
 
             MainPage = new NavigationPage(new LoginPage());
         }

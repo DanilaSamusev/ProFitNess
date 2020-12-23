@@ -12,7 +12,12 @@ namespace ProFitNess.UI.Views
         {
             InitializeComponent();
 
-            ExerciseTypes.ItemsSource = App.ExerciseTypesTable.GetAll().Select(et => et.Name);
+            ExerciseTypes.ItemsSource = App.ExerciseTypeService.GetAll().Select(et => et.Name);
+        }
+
+        private void ExerciseTypes_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Navigation.PushAsync(new ExercisesListPage());
         }
     }
 }
