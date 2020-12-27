@@ -25,6 +25,16 @@ namespace ProFitNess.BLL.Services
             return _exerciseRepository.Get(id);
         }
 
+        public Exercise GetByName(string name)
+        {
+            return _exerciseRepository.GetByName(name);
+        }
+
+        public IEnumerable<Exercise> GetNameByTypeId(int typeId)
+        {
+            return _exerciseRepository.GetNameByTypeId(typeId);
+        }
+
         public int Save(Exercise item)
         {
             return _exerciseRepository.Save(item);

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-
+using System.Linq;
 using ProFitNess.DAL.Entities;
 
 using SQLite;
@@ -24,6 +24,21 @@ namespace ProFitNess.DAL.Repositories
         public Exercise Get(int id)
         {
             return _database.Get<Exercise>(id);
+        }
+
+        public Exercise GetByName(string name)
+        {
+            return _database
+                .Query<Exercise>("SELECT * FROM Exercises e " +
+                                 $"WHERE e.Name = '{name}'")
+                .FirstOrDefault();
+        }
+
+        public IEnumerable<Exercise> GetNameByTypeId(int typeId)
+        {
+            return _database
+                .Query<Exercise>("SELECT * FROM Exercises e " +
+                                 $"WHERE e.ExerciseTypeId = {typeId}");
         }
 
         public int Save(Exercise item)

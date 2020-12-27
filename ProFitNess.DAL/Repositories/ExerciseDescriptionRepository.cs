@@ -25,6 +25,13 @@ namespace ProFitNess.DAL.Repositories
                                                          "WHERE e.ExerciseTypeId = 1");
         }
 
+        public IEnumerable<ExerciseDescription> GetAllByTypeId(int typeId)
+        {
+            return _database.Query<ExerciseDescription>("SELECT * FROM Exercises e " +
+                                                        "JOIN ExerciseTypes et ON e.ExerciseTypeId = et.Id " +
+                                                        $"WHERE e.ExerciseTypeId = {typeId}");
+        }
+
         public ExerciseDescription Get(int id)
         {
             return _database.Get<ExerciseDescription>(id);

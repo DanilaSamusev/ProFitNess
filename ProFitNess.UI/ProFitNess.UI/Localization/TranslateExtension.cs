@@ -16,7 +16,7 @@ namespace ProFitNess.UI.Localization
 
         public TranslateExtension()
         {
-            _cultureInfo = new CultureInfo("ru");
+            _cultureInfo = new CultureInfo("en");
         }
 
         public string Text { get; set; }

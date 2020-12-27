@@ -1,5 +1,6 @@
-﻿using System.Linq;
-
+﻿using System.Collections.Generic;
+using System.Linq;
+using ProFitNess.DAL.Entities;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,15 +9,18 @@ namespace ProFitNess.UI.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ExercisesListPage : ContentPage
     {
-        public ExercisesListPage()
+        public ExercisesListPage(IEnumerable<Exercise> exercises)
         {
             InitializeComponent();
 
-            ExerciseDescriptions.ItemsSource = App.ExerciseDescriptionService.GetAll().Select(ed => ed.Name);
+            ExerciseDescriptions.ItemsSource = exercises.Select(e => e.Name);
         }
+
         public void ExerciseDescriptions_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            Navigation.PushAsync(new ExercisePage());
+            var exercise = App.ExerciseService.GetByName(e.Item.ToString());
+
+            Navigation.PushAsync(new ExercisePage(exercise));
         }
     }
 }

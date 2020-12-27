@@ -4,10 +4,10 @@
              x:Class="ProFitNess.UI.Views.ExercisePage">
     <ContentPage.Content>
         <FlexLayout Direction="Column" Wrap="Wrap" JustifyContent="Center">
-            <Label Text="Name: Sit"/>
-            <Image Source="sit.gif" IsAnimationPlaying="True"/>
-            <Label Text="Calories for 15 minutes: 100"/>
-            <Label Text="Description: while inhaling, pulling the pelvis back, bend your knees to a right angle. As you exhale, return to the starting position"/>
+            <Label x:Name="ExerciseName"/>
+            <Image x:Name="ExerciseImage" IsAnimationPlaying="True"/>
+            <Label x:Name="ExerciseCalories"/>
+            <Label x:Name="ExerciseDescription"/>
         </FlexLayout>
     </ContentPage.Content>
 </ContentPage>
