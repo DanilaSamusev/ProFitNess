@@ -7,8 +7,9 @@
         <FlexLayout Direction="Column" Wrap="Wrap" JustifyContent="SpaceAround">
             <Label Text="{localization:Translate Welcome}"/>
             <Label Text="{localization:Translate Signin}"/>
-            <Entry Placeholder="{localization:Translate Mail}"/>
-            <Entry Placeholder="{localization:Translate Password}"/>
+            <Label x:Name="LoginErrorLabel" Text="User not found!" TextColor="Red" IsVisible="False"/>
+            <Entry x:Name="UserMail" Placeholder="{localization:Translate Mail}"/>
+            <Entry x:Name="UserPassword" Placeholder="{localization:Translate Password}"/>
             <Button Text="{localization:Translate Login}" Clicked="LoginButton_Clicked"/>
             <Button Text="{localization:Translate Registration}" Clicked="RegisterButton_Clicked"/>
         </FlexLayout>

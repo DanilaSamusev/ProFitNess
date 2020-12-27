@@ -15,7 +15,17 @@ namespace ProFitNess.UI.Views
 
         public void LoginButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new HomePage());
+            var user = App.UserService.GetByMailAndPassword(UserMail.Text, UserPassword.Text);
+
+            if (user != null)
+            {
+                LoginErrorLabel.IsVisible = false;
+                Navigation.PushAsync(new ExerciseTypesPage());
+            }
+            else
+            {
+                LoginErrorLabel.IsVisible = true;
+            }
         }
 
         public void RegisterButton_Clicked(object sender, EventArgs e)

@@ -15,7 +15,7 @@ namespace ProFitNess.UI.Views
 
         public void WeightLossButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ExerciseTypesPage());
+            
         }
     }
 }

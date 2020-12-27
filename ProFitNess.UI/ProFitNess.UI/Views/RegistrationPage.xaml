@@ -6,17 +6,18 @@
     <ContentPage.Content>
         <FlexLayout Direction="Column" Wrap="Wrap" JustifyContent="SpaceAround">
             <Label Text="{localization:Translate Registration}"/>
+            <Label x:Name="RegistrationErrorLabel" Text="Fill all inputs!" TextColor="Red" IsVisible="False"/>
             <Label Text="{localization:Translate Name}"/>
-            <Entry />
+            <Entry x:Name="UserName" />
             <Label Text="{localization:Translate Sex}"/>
-            <Entry />
+            <Entry x:Name="UserSex"/>
             <Label Text="{localization:Translate Age}"/>
-            <Entry />
+            <Entry x:Name="UserAge"/>
             <Label Text="{localization:Translate Mail}"/>
-            <Entry />
+            <Entry x:Name="UserMail"/>
             <Label Text="{localization:Translate Password}"/>
-            <Entry />
-            <Button Text="{localization:Translate Next}"/>
+            <Entry x:Name="UserPassword" IsPassword ="True"/>
+            <Button Text="{localization:Translate Registration}" Clicked="RegistrationButton_Clicked"/>
         </FlexLayout>
     </ContentPage.Content>
 </ContentPage>

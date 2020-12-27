@@ -2,8 +2,6 @@
 using System.IO;
 using System.Reflection;
 using ProFitNess.BLL.Services;
-using ProFitNess.DAL;
-using ProFitNess.DAL.Entities;
 using ProFitNess.UI.Views;
 
 using Xamarin.Forms;
@@ -17,6 +15,7 @@ namespace ProFitNess.UI
         private static ExerciseTypeService _exerciseTypeService;
         private static ExerciseDescriptionService _exerciseDescriptionService;
         private static ExerciseService _exerciseService;
+        private static UserService _userService;
 
         public static ExerciseTypeService ExerciseTypeService =>
             _exerciseTypeService ?? (
@@ -36,11 +35,17 @@ namespace ProFitNess.UI
                     Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                         DatabaseName)));
 
+        public static UserService UserService =>
+            _userService ?? (
+                _userService = new UserService(
+                    Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                        DatabaseName)));
+
         public App()
         {
             InitializeComponent();
             
-            string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), DatabaseName);
+            /*string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), DatabaseName);
 
             if (!File.Exists(DatabaseName))
             {
@@ -54,7 +59,7 @@ namespace ProFitNess.UI
                         fs.Flush();
                     }
                 }
-            }
+            }*/
 
             MainPage = new NavigationPage(new LoginPage());
         }
